@@ -6,35 +6,38 @@ Experimental web component framework for modern browsers
 
     import { html, state, web_component, define_component } from '@melhosseiny/sourdough';
 
-    const style = fetch('./hello_world.css')
-      .then(response => response.text());
+    const style = `
+      p { color: magenta; }
+    `;
 
-    export const tmpl = (data) => html`
+    const template = (data) => html`
       <p>Hello, World!</p>
     `
 
     export function hello_world(spec) {
       let { _root } = spec;
       const _state = state(spec);
-      const { get_spec, render } = web_component(spec);
-
-      const init = async () => {
-        _root.style(await style);
-      }
+      const _web_component = web_component(spec);
 
       const effects = () => {
         // add event listeners
       }
 
+      // component methods
+
       return Object.freeze({
-        init,
-        get_spec,
-        render,
+        ..._web_component
         effects
       })
     }
 
-    define_component('hello-world', hello_world, tmpl);
+    define_component({
+      name: 'hello-world',
+      component: hello_world,
+      template,
+      style,
+      props: []
+    );
 
 `index.html`
 

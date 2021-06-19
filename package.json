@@ -2,7 +2,7 @@
   "name": "@melhosseiny/sourdough",
   "version": "0.0.1",
   "description": "Experimental web component framework for modern browsers",
-  "license": "CC-BY-NC-ND 4.0",
+  "license": "MIT",
   "author": "Mostafa Elshamy",
   "main": "src/index.mjs",
   "scripts": {
