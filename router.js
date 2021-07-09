@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         handleNavigation(location);
       });
 */
-export const installRouter = (locationUpdatedCallback: (location:Location, event: Event|null) => void) => {
+export const installRouter = (locationUpdatedCallback) => {
   document.body.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 ||
         e.metaKey || e.ctrlKey || e.shiftKey) return;
