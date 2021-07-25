@@ -134,6 +134,7 @@ function get_constructed_style_sheet(style_sheet) {
 
 export function set_shared_style_sheets(sheets) {
   const constructed_sheets = sheets.map(sheet => get_constructed_style_sheet(sheet));
+  console.log('set_shared_style_sheets', shared_style_sheets);
   shared_style_sheets = [...constructed_sheets];
 }
 
@@ -155,6 +156,7 @@ export function define_component(opts) {
       style(style) {
         const sheet = new CSSStyleSheet();
         sheet.replaceSync(style);
+        console.log('define_component:style', shared_style_sheets);
         this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
       }
 
