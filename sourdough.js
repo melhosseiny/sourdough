@@ -134,7 +134,7 @@ function get_constructed_style_sheet(style_sheet) {
 
 export function set_shared_style_sheets(sheets) {
   const constructed_sheets = sheets.map(sheet => get_constructed_style_sheet(sheet));
-  console.log('set_shared_style_sheets', shared_style_sheets);
+  console.log('set_shared_style_sheets', constructed_sheets, shared_style_sheets);
   shared_style_sheets = [...constructed_sheets];
 }
 
