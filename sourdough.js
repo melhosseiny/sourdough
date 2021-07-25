@@ -158,7 +158,7 @@ export function define_component(opts) {
       style(style) {
         const sheet = new CSSStyleSheet();
         sheet.replaceSync(style);
-        console.log(`${script_id}:define_component:style`, shared_style_sheets);
+        console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
         this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
       }
 
