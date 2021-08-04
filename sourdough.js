@@ -123,7 +123,7 @@ export function state(spec) {
 
 let shared_style_sheets = [];
 
-function get_constructed_style_sheet(style_sheet) {
+export function get_constructed_style_sheet(style_sheet) {
   const sheet = new CSSStyleSheet();
   const rules = [];
 
@@ -156,10 +156,16 @@ export function define_component(opts) {
       }
 
       style(style) {
-        const sheet = new CSSStyleSheet();
-        sheet.replaceSync(style);
-        console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
-        this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
+        try {
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync(style);
+          console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
+          this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
+        } catch (error) {
+          const style_el = document.createElement("style");
+          style_el.innerHTML = style;
+          this.shadowRoot.appendChild(style_el);
+        }
       }
 
       connectedCallback() {
