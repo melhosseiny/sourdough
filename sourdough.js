@@ -123,12 +123,17 @@ export function state(spec) {
 
 let shared_style_sheets = [];
 
-export function get_constructed_style_sheet(style_sheet) {
+/**
+ * Constructs an adoptable stylesheet from a non-constructed one (e.g. from link el)
+ * @param {stylesheet} a non-constructed stylesheet
+ * @returns a constructed stylesheet with the same rules
+ */
+export function get_constructed_style_sheet(stylesheet) {
   const sheet = new CSSStyleSheet();
   const rules = [];
 
-  for (let i = 0; i < style_sheet.rules.length; i++) {
-    rules.push(style_sheet.rules[i].cssText);
+  for (let i = 0; i < stylesheet.rules.length; i++) {
+    rules.push(stylesheet.rules[i].cssText);
   }
   sheet.replaceSync(rules.join(''));
   return sheet;
