@@ -165,6 +165,12 @@ export function define_component(opts) {
           const style_el = document.createElement("style");
           style_el.innerHTML = style;
           this.shadowRoot.appendChild(style_el);
+
+          [...document.styleSheets].forEach(sheet => {
+            const style_el = document.createElement("style");
+            style_el.innerHTML = `@import "${sheet.href}"`;
+            this.shadowRoot.appendChild(style_el);
+          });
         }
       }
 
