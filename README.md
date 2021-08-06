@@ -2,6 +2,8 @@
 
 Experimental web component framework for modern browsers
 
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/busy-dog-44.deno.dev%2Fmelhosseiny%2Fsourdough%2Fmain%2Fsourdough.js)
+
 `components/hello_world.mjs`
 
     import { html, state, web_component, define_component } from '@melhosseiny/sourdough';

@@ -125,8 +125,8 @@ let shared_style_sheets = [];
 
 /**
  * Constructs an adoptable stylesheet from a non-constructed one (e.g. from link el)
- * @param {stylesheet} a non-constructed stylesheet
- * @returns a constructed stylesheet with the same rules
+ * @param stylesheet a non-constructed stylesheet
+ * @return a constructed stylesheet with the same rules
  */
 export function get_constructed_style_sheet(stylesheet) {
   const sheet = new CSSStyleSheet();
