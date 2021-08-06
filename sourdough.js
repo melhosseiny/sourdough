@@ -135,9 +135,13 @@ export function get_constructed_style_sheet(style_sheet) {
 }
 
 export function set_shared_style_sheets(sheets) {
-  const constructed_sheets = sheets.map(sheet => get_constructed_style_sheet(sheet));
-  console.log(`${script_id}:set_shared_style_sheets`, constructed_sheets, shared_style_sheets);
-  shared_style_sheets = [...constructed_sheets];
+  try {
+    const constructed_sheets = sheets.map(sheet => get_constructed_style_sheet(sheet));
+    console.log(`${script_id}:set_shared_style_sheets`, constructed_sheets, shared_style_sheets);
+    shared_style_sheets = [...constructed_sheets];
+  } catch (error) {
+    shared_style_sheets = sheets;
+  }
 }
 
 export function define_component(opts) {
@@ -166,7 +170,7 @@ export function define_component(opts) {
           style_el.innerHTML = style;
           this.shadowRoot.appendChild(style_el);
 
-          [...document.styleSheets].forEach(sheet => {
+          shared_style_sheets.forEach(sheet => {
             const style_el = document.createElement("style");
             style_el.innerHTML = `@import "${sheet.href}"`;
             this.shadowRoot.appendChild(style_el);
