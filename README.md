@@ -1,4 +1,4 @@
-# Sourdough
+# Sourdough 🥖
 
 Experimental web component framework for modern browsers
 
