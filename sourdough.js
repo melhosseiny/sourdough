@@ -176,10 +176,6 @@ export function define_component(opts) {
           console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
           this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
         } catch (error) {
-          const style_el = document.createElement("style");
-          style_el.innerHTML = style;
-          this.shadowRoot.appendChild(style_el);
-
           shared_style_sheets.forEach(sheet => {
             const style_el = document.createElement("style");
             style_el.innerHTML = sheet.href
@@ -187,6 +183,10 @@ export function define_component(opts) {
               : get_css_text(sheet);
             this.shadowRoot.appendChild(style_el);
           });
+
+          const style_el = document.createElement("style");
+          style_el.innerHTML = style;
+          this.shadowRoot.appendChild(style_el);
         }
       }
 
