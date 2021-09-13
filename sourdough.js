@@ -123,6 +123,16 @@ export function state(spec) {
 
 let shared_style_sheets = [];
 
+const get_css_text = stylesheet => {
+  const rules = [];
+
+  for (let i = 0; i < stylesheet.rules.length; i++) {
+    rules.push(stylesheet.rules[i].cssText);
+  }
+
+  return rules.join('');
+}
+
 /**
  * Constructs an adoptable stylesheet from a non-constructed one (e.g. from link el)
  * @param stylesheet a non-constructed stylesheet
@@ -130,12 +140,7 @@ let shared_style_sheets = [];
  */
 export function get_constructed_style_sheet(stylesheet) {
   const sheet = new CSSStyleSheet();
-  const rules = [];
-
-  for (let i = 0; i < stylesheet.rules.length; i++) {
-    rules.push(stylesheet.rules[i].cssText);
-  }
-  sheet.replaceSync(rules.join(''));
+  sheet.replaceSync(get_css_text(stylesheet));
   return sheet;
 }
 
@@ -177,7 +182,9 @@ export function define_component(opts) {
 
           shared_style_sheets.forEach(sheet => {
             const style_el = document.createElement("style");
-            style_el.innerHTML = `@import "${sheet.href}"`;
+            style_el.innerHTML = sheet.href
+              ? `@import "${sheet.href}"`
+              : get_css_text(sheet);
             this.shadowRoot.appendChild(style_el);
           });
         }
