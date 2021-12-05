@@ -1,25 +1,25 @@
-# Sourdough 🥖
+# sourdough 🥖
 
-Experimental web component framework for modern browsers
+Compose user interfaces without frameworks using functional web components and native JavaScript modules
 
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/busy-dog-44.deno.dev%2Fmelhosseiny%2Fsourdough%2Fmain%2Fsourdough.js)
 
-`components/hello_world.mjs`
+`components/hello_world.js`
 
-    import { html, state, web_component, define_component } from '@melhosseiny/sourdough';
-
-    const style = `
-      p { color: magenta; }
-    `;
+    import { html, state, web_component, define_component } from "https://busy-dog-44.deno.dev/melhosseiny/sourdough/main/sourdough.js";
 
     const template = (data) => html`
       <p>Hello, World!</p>
     `
 
+    const style = `
+      p { color: magenta; }
+    `;
+
     export function hello_world(spec) {
       let { _root } = spec;
-      const _state = state(spec);
       const _web_component = web_component(spec);
+      const _state = state(spec);
 
       const effects = () => {
         // add event listeners
@@ -34,7 +34,7 @@ Experimental web component framework for modern browsers
     }
 
     define_component({
-      name: 'hello-world',
+      name: "hello-world",
       component: hello_world,
       template,
       style,
@@ -51,7 +51,7 @@ Experimental web component framework for modern browsers
       <body>
         <hello-world></hello-world>
         <script type="module">
-          import { hello_world } from './components/hello_world.mjs';
+          import { hello_world } from "./components/hello_world.js";
         </script>
       </body>
     </html>
