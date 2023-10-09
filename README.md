@@ -2,7 +2,7 @@
 
 Compose user interfaces without frameworks using functional web components and native JavaScript modules
 
-[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/busy-dog-44.deno.dev%2Fmelhosseiny%2Fsourdough%2Fmain%2Fsourdough.js)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https://raw.githubusercontent.com/melhosseiny/sourdough/main/sourdough.js)
 
 `components/hello_world.js`
 
