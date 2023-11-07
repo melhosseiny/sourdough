@@ -1,8 +1,12 @@
-# sourdough 🥖
-
-Compose user interfaces without frameworks using functional web components and native JavaScript modules
+![](https://github.com/melhosseiny/sourdough/blob/32f18d942dbdc700855b1c298f252c34c5cf6869/91527_repo.png)
 
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https://raw.githubusercontent.com/melhosseiny/sourdough/main/sourdough.js)
+
+## Guide
+
+1. [Functional web components](https://warm-dawn.deno.dev/composing-user-interfaces-without-frameworks-part-1)
+
+## How to write a component
 
 `components/hello_world.js`
 
