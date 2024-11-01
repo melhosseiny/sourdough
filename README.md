@@ -1,6 +1,6 @@
 # Flare
 
-![](https://github.com/melhosseiny/sourdough/blob/a7f535bc12baed4efcbdeb4e763401fc56e6ba6b/repo.png)
+![](https://github.com/melhosseiny/sourdough/blob/3d0a00c0de64b37cd2de4f72311e3ea4a348bb80/repo.png)
 
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https://raw.githubusercontent.com/melhosseiny/sourdough/main/sourdough.js)
 
