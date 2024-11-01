@@ -1,4 +1,6 @@
-![](https://github.com/melhosseiny/sourdough/blob/32f18d942dbdc700855b1c298f252c34c5cf6869/91527_repo.png)
+# Flare
+
+![](https://github.com/melhosseiny/sourdough/blob/a7f535bc12baed4efcbdeb4e763401fc56e6ba6b/repo.png)
 
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https://raw.githubusercontent.com/melhosseiny/sourdough/main/sourdough.js)
 
@@ -10,7 +12,7 @@
 
 `components/hello_world.js`
 
-    import { html, state, web_component, define_component } from "https://busy-dog-44.deno.dev/melhosseiny/sourdough/main/sourdough.js";
+    import { html, state, web_component, define_component } from "sourdough";
 
     const template = (data) => html`
       <p>Hello, World!</p>
@@ -50,7 +52,14 @@
     <!DOCTYPE html>
     <html lang="en">
       <head>
-        <title>Sourdough</title>
+        <title>My app</title>
+        <script type="importmap">
+          {
+            "imports": {
+              "sourdough": "https://busy-dog-44.deno.dev/melhosseiny/sourdough/main/sourdough.js"
+            }
+          }
+        </script>
       </head>
       <body>
         <hello-world></hello-world>
