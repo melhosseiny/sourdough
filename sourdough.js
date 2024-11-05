@@ -9,13 +9,13 @@ export function web_component(spec) {
       return obj[prop];
     },
     set: function(obj, prop, value) {
-      console.log("set", obj, prop, value);
+      //console.log("set", obj, prop, value);
       obj[prop] = value;
-      console.log("spec", spec);
+      //console.log("spec", spec);
       render(prop);
-      console.log(spec._root.component);
+      //console.log(spec._root.component);
       if (spec._root.component.effects) {
-        console.log('cleanup', spec._root.component.cleanup_effects);
+        //console.log('cleanup', spec._root.component.cleanup_effects);
         if (spec._root.component.cleanup_effects) {
           spec._root.component.cleanup_effects();
         }
@@ -104,14 +104,14 @@ export function state(spec) {
       return obj[prop];
     },
     set: function(obj, prop, value) {
-      console.log("set", obj, prop, value);
+      //console.log("set", obj, prop, value);
       obj[prop] = value;
       //console.log("spec", spec);
       spec._root.component.render(prop);
       //console.log(spec._root.component);
       if (spec._root.component.effects) {
         if (spec._root.component.cleanup_effects) {
-          console.log(spec._root.component.cleanup_effects);
+          //console.log(spec._root.component.cleanup_effects);
           spec._root.component.cleanup_effects();
         }
         spec._root.component.effects();
@@ -147,7 +147,7 @@ export function get_constructed_style_sheet(stylesheet) {
 export function set_shared_style_sheets(sheets) {
   try {
     const constructed_sheets = sheets.map(sheet => get_constructed_style_sheet(sheet));
-    console.log(`${script_id}:set_shared_style_sheets`, constructed_sheets, shared_style_sheets);
+    //console.log(`${script_id}:set_shared_style_sheets`, constructed_sheets, shared_style_sheets);
     shared_style_sheets = [...constructed_sheets];
   } catch (error) {
     shared_style_sheets = sheets;
@@ -173,7 +173,7 @@ export function define_component(opts) {
         try {
           const sheet = new CSSStyleSheet();
           sheet.replaceSync(style);
-          console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
+          //console.log(`${script_id}:${opts.name}:define_component:style`, shared_style_sheets);
           this.shadowRoot.adoptedStyleSheets = [...shared_style_sheets, sheet];
         } catch (error) {
           shared_style_sheets.forEach(sheet => {
